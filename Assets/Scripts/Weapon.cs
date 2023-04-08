@@ -13,11 +13,14 @@ public class Weapon : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             Shoot();
+       
+            
         }
     }
 
     void Shoot()
     {
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        
     }
 }
