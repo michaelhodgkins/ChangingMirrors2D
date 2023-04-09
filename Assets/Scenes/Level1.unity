@@ -201,7 +201,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f076832741c809d4684652f1d6ae946e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 3085825152548276753, guid: cf0c35fdd38bdb24b83548f603b69d02, type: 3}
+  enemy:
+  - {fileID: 3085825152548276753, guid: cf0c35fdd38bdb24b83548f603b69d02, type: 3}
+  - {fileID: 6740697539989804000, guid: cd75829828d38d647afe566aeda173ed, type: 3}
   spawnPoints:
   - {fileID: 1617290233}
   - {fileID: 470577916}
@@ -1186,8 +1188,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_Color: {r: 0.22441936, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1369,7 +1371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bec0533c1331d5d48992f55eaeb4e4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 6
   score: 0
   scoreText: {fileID: 445024228}
   rb: {fileID: 1567808941}

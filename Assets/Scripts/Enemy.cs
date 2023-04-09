@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 {
     public int health = 100;
     public int damage = 10;
-    
+    public bool hasHit = false;
     public float speed;
 
     PlayerController player;
@@ -31,16 +31,27 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    
 
     public void TakeDamage(int damage)
     {
         health -= damage;
-
+        StartCoroutine(DamageTimer());
         if (health <= 0)
         {
             player.score++;
             Die();
         }
+    }
+
+    IEnumerator DamageTimer()
+    {
+        if (hasHit)
+        {
+            yield return new WaitForSecondsRealtime(2);
+            hasHit = false;
+        }
+
     }
 
     void Die()
