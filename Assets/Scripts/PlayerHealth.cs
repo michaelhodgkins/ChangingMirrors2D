@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
 
-    public int health = 100;
+    public int health = 0;
     public TextMeshProUGUI healthDisplay;
     public void TakeDamage(int damage)
     {

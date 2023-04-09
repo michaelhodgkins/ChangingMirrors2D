@@ -1,27 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
     public GameObject enemy;
     public Transform[] spawnPoints;
-
-    public float timeBetweenSpawns;
-    float nextSpawnTime;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    int spawnLimit = 2;
+    int spawned = 0;
 
     // Update is called once per frame
-    void Update()
+    void Start()
     {
-        if(Time.time > nextSpawnTime)
+        StartCoroutine(WaveSystem());
+
+    }
+
+    IEnumerator WaveSystem()
+    {
+       while(spawned <= spawnLimit)
         {
             Instantiate(enemy, spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.identity);
-            nextSpawnTime = Time.time + timeBetweenSpawns;
+            yield return new WaitForSecondsRealtime(2);
+            spawnLimit++;
         }
+       
     }
 }
