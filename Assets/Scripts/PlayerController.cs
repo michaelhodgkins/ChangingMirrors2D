@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    
-   
+    public int score = 0;
+    public TextMeshProUGUI scoreText;
+
     public Rigidbody2D rb;
 
     public Camera cam;
@@ -19,6 +21,7 @@ public class PlayerController : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        scoreText.text = "Score: " + score;
     }
 
     void FixedUpdate()

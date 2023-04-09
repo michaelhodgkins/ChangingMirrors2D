@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Enemy : MonoBehaviour
 {
     public int health = 100;
     public int damage = 10;
+    
     public float speed;
 
     PlayerController player;
@@ -36,6 +38,7 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
         {
+            player.score++;
             Die();
         }
     }
