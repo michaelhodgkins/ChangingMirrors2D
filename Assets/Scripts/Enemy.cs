@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int health = 100;
+    public int damage = 10;
     public float speed;
 
     PlayerController player;
@@ -19,11 +20,21 @@ public class Enemy : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        PlayerHealth playerHealth = collision.GetComponent<PlayerHealth>();
+        if (playerHealth != null)
+        {
+            playerHealth.TakeDamage(damage);
+        }
+    }
+
+
     public void TakeDamage(int damage)
     {
         health -= damage;
 
-        if (health < 0)
+        if (health <= 0)
         {
             Die();
         }
@@ -33,4 +44,5 @@ public class Enemy : MonoBehaviour
     {
         Destroy(gameObject);
     }
+   
 }
