@@ -9,10 +9,10 @@ public class Enemy : MonoBehaviour
     public int damage = 10;
     public bool hasHit = false;
     public float speed;
-
+    int collisionDmg = 50;
     PlayerController player;
 
-     void Start()
+    void Start()
     {
         player = FindObjectOfType<PlayerController>();
     }
@@ -28,10 +28,9 @@ public class Enemy : MonoBehaviour
         if (playerHealth != null)
         {
             playerHealth.TakeDamage(damage);
+            this.TakeDamage(collisionDmg);
         }
     }
-
-    
 
     public void TakeDamage(int damage)
     {
@@ -56,7 +55,7 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        Destroy(gameObject);
+            Destroy(gameObject);
     }
    
 }
