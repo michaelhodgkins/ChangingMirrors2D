@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
     }
 
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerHealth playerHealth = collision.GetComponent<PlayerHealth>();
@@ -39,6 +40,7 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             player.score++;
+            
             Die();
         }
     }
@@ -55,6 +57,7 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
+       
             Destroy(gameObject);
     }
    

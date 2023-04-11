@@ -9,6 +9,8 @@ public class PlayerHealth : MonoBehaviour
 
     public int health = 0;
     public TextMeshProUGUI healthDisplay;
+    public AudioSource deathAudio;
+
     public void TakeDamage(int damage)
     {
         health -= damage;
@@ -26,7 +28,6 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("You died");
-        SceneManager.LoadScene(0);
+       deathAudio.Play();
     }
 }

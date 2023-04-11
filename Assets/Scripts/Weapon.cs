@@ -10,13 +10,27 @@ public class Weapon : MonoBehaviour
     public bool hasShot = false;
 
     public GameObject bulletPrefab;
-    // Update is called once per frame
+
+
+    public Camera cam;
+    public Transform shoulder;
+    public float armLength = 2f;
+    public AudioSource shotAudio;
+
+    private void Start()
+    {
+        shoulder = transform.parent.transform;
+
+    }
     void Update()
     {
+       Vector3 shoulderToMousesDir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - shoulder.position;
+        shoulderToMousesDir.z = 0;
+        transform.position = shoulder.position + (armLength * shoulderToMousesDir.normalized);
         if (Input.GetMouseButtonDown(0) && hasShot == false)
         {
             Shoot();
-            Debug.Log("input");
+           
         }
     }
 
@@ -24,9 +38,10 @@ public class Weapon : MonoBehaviour
     {
         if (hasShot)
         {
-            Debug.Log("Shooting mechanic fired off");
+            
 
             Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            shotAudio.Play();
             yield return new WaitForSecondsRealtime(fireRate);
             Debug.Log("wait 1 second");
 
@@ -38,8 +53,6 @@ public class Weapon : MonoBehaviour
     void Shoot()
     {
         hasShot = true;
-        Debug.Log("has shot == true");
-
         StartCoroutine(ShootingMechanic());
     }
 
