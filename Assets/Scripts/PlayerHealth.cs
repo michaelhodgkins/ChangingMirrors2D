@@ -17,6 +17,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (health <= 0)
         {
+            StartCoroutine(DeathTimer());
             Die();
         }
     }
@@ -26,8 +27,13 @@ public class PlayerHealth : MonoBehaviour
         healthDisplay.text = "Health: " + health;
     }
 
+    IEnumerator DeathTimer()
+    {
+        yield return new WaitForSecondsRealtime(5);
+    }
     void Die()
     {
        deathAudio.Play();
+       SceneManager.LoadScene(0);
     }
 }
