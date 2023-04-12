@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireMine : MonoBehaviour
+public class FireBall : MonoBehaviour
 {
-    public float speed = 20f;
+    public float speed = 2f;
     public int damage;
-    public Rigidbody2D rb;
- 
+    [SerializeField] Rigidbody2D rb;
+   
     void Start()
     {
         
@@ -25,6 +25,7 @@ public class FireMine : MonoBehaviour
 
     private void Update()
     {
-        Destroy(gameObject,2);
+        Destroy(gameObject, 2);
+        rb.AddForce(Vector2.up * speed * Time.deltaTime, ForceMode2D.Impulse);
     }
 }

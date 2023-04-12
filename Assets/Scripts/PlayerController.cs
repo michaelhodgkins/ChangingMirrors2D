@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 5f;
     public int score = 0;
     public TextMeshProUGUI scoreText;
-
     public Rigidbody2D rb;
 
     Vector2 movement;

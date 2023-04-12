@@ -1,36 +1,26 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
     public Transform firePoint;
-    int fireRate = 1;
-    
-    public bool hasShot = false;
-
-    public GameObject bulletPrefab;
-
-
+    [SerializeField] GameObject bulletPrefab;
+    private int fireRate = 1;
+    private bool hasShot = false;
     public Camera cam;
     public Transform shoulder;
     public float armLength = 2f;
     public AudioSource shotAudio;
-
-    private void Start()
-    {
-        shoulder = transform.parent.transform;
-
-    }
+   
     void Update()
     {
-       Vector3 shoulderToMousesDir = Camera.main.ScreenToWorldPoint(Input.mousePosition) - shoulder.position;
+        Vector3 shoulderToMousesDir = cam.ScreenToWorldPoint(Input.mousePosition) - shoulder.position;
         shoulderToMousesDir.z = 0;
-        transform.position = shoulder.position + (armLength * shoulderToMousesDir.normalized);
+       transform.position = shoulder.position + (armLength * shoulderToMousesDir.normalized);
         if (Input.GetMouseButtonDown(0) && hasShot == false)
         {
             Shoot();
-           
+            
         }
     }
 

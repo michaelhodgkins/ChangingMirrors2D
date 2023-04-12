@@ -10,16 +10,24 @@ public class PlayerHealth : MonoBehaviour
     public int health = 0;
     public TextMeshProUGUI healthDisplay;
     public AudioSource deathAudio;
+    public SpriteRenderer sr;
 
     public void TakeDamage(int damage)
     {
         health -= damage;
+        StartCoroutine(ColorSwitch());
 
         if (health <= 0)
         {
-            StartCoroutine(DeathTimer());
             Die();
         }
+    }
+
+    IEnumerator ColorSwitch()
+    {
+        sr.color = Color.red;
+        yield return new WaitForSecondsRealtime(0.2f);
+        sr.color = Color.white;
     }
 
     private void Update()
@@ -27,10 +35,6 @@ public class PlayerHealth : MonoBehaviour
         healthDisplay.text = "Health: " + health;
     }
 
-    IEnumerator DeathTimer()
-    {
-        yield return new WaitForSecondsRealtime(5);
-    }
     void Die()
     {
        deathAudio.Play();
