@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Spawner : MonoBehaviour
 {
     public GameObject[] enemy;
+    public GameObject potion;
     public Transform[] spawnPoints;
     [SerializeField] int spawnMax = 4;
     [SerializeField] int spawnCount = 0;
@@ -28,7 +30,11 @@ public class Spawner : MonoBehaviour
             yield return new WaitForSecondsRealtime(2);
             spawnCount++;
         }
-       StartCoroutine(TimeBetweenWaves());
+        if (waveCount == 5)
+        {
+            StartCoroutine(RewardStage());
+        }
+        StartCoroutine(TimeBetweenWaves());
        
     }
 
@@ -43,8 +49,16 @@ public class Spawner : MonoBehaviour
         StartCoroutine(WaveSystem());
     }
 
+    IEnumerator RewardStage()
+    {
+        Instantiate(potion, Vector3.right, Quaternion.identity);
+        yield return null;
+        
+    }
+
     private void Update()
     {
         waveText.text = "wave: " + waveCount;
+        
     }
 }
