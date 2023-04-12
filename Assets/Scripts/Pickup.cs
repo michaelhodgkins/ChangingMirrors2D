@@ -6,11 +6,24 @@ public class Pickup : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        PlayerHealth playerHealth = collision.GetComponent<PlayerHealth>();
-        if (playerHealth != null)
+        if (collision.CompareTag("potion"))
         {
-            playerHealth.health += 20;
-            Destroy(gameObject);
+            PlayerHealth health = GetComponent<PlayerHealth>();
+            if (health != null)
+            {
+                health.health += 20;
+            }
+            Destroy(collision.gameObject);
+        }
+        else if (collision.CompareTag("scroll"))
+        {
+            Weapon weapon = GetComponentInChildren<Weapon>();
+            if (weapon != null)
+            {
+                weapon.fireRate = 0.5f;
+            }
+            Destroy(collision.gameObject);
+
         }
     }
 }

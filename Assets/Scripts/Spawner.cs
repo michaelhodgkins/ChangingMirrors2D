@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Spawner : MonoBehaviour
 {
     public GameObject[] enemy;
-    public GameObject potion;
+    public GameObject[] item;
     public Transform[] spawnPoints;
     [SerializeField] int spawnMax = 4;
     [SerializeField] int spawnCount = 0;
@@ -51,7 +51,7 @@ public class Spawner : MonoBehaviour
 
     IEnumerator RewardStage()
     {
-        Instantiate(potion, Vector3.right, Quaternion.identity);
+        Instantiate(item[Random.Range(0, item.Length)], Vector3.right, Quaternion.identity);
         yield return null;
         
     }

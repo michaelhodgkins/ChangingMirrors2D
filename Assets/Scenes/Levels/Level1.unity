@@ -418,7 +418,9 @@ MonoBehaviour:
   enemy:
   - {fileID: 3085825152548276753, guid: cf0c35fdd38bdb24b83548f603b69d02, type: 3}
   - {fileID: 6740697539989804000, guid: cd75829828d38d647afe566aeda173ed, type: 3}
-  potion: {fileID: 1305336603605258826, guid: 059900c39419f3742b431aadf4f223b3, type: 3}
+  item:
+  - {fileID: 2597214444439420879, guid: 0bd8efab7625ef04a8653d551a6f9859, type: 3}
+  - {fileID: 1305336603605258826, guid: 059900c39419f3742b431aadf4f223b3, type: 3}
   spawnPoints:
   - {fileID: 1617290233}
   - {fileID: 1477210354}
@@ -445,63 +447,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &416718715
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1305336603605258826, guid: 059900c39419f3742b431aadf4f223b3, type: 3}
-      propertyPath: m_Name
-      value: Potion
-      objectReference: {fileID: 0}
-    - target: {fileID: 1305336603605258828, guid: 059900c39419f3742b431aadf4f223b3, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1305336603605258828, guid: 059900c39419f3742b431aadf4f223b3, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5.835936
-      objectReference: {fileID: 0}
-    - target: {fileID: 1305336603605258828, guid: 059900c39419f3742b431aadf4f223b3, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.17467284
-      objectReference: {fileID: 0}
-    - target: {fileID: 1305336603605258828, guid: 059900c39419f3742b431aadf4f223b3, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1305336603605258828, guid: 059900c39419f3742b431aadf4f223b3, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1305336603605258828, guid: 059900c39419f3742b431aadf4f223b3, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1305336603605258828, guid: 059900c39419f3742b431aadf4f223b3, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1305336603605258828, guid: 059900c39419f3742b431aadf4f223b3, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1305336603605258828, guid: 059900c39419f3742b431aadf4f223b3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1305336603605258828, guid: 059900c39419f3742b431aadf4f223b3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1305336603605258828, guid: 059900c39419f3742b431aadf4f223b3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 059900c39419f3742b431aadf4f223b3, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -872,7 +817,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 62ce01ddca719d34ea9648c586a7cc94, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -880,7 +825,7 @@ SpriteRenderer:
   m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &976900201
@@ -1756,6 +1701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 943328824}
   bulletPrefab: {fileID: 6876729947168993764, guid: 408d5a71ee5602d478100b06ad577150, type: 3}
+  fireRate: 1
   cam: {fileID: 519420031}
   shoulder: {fileID: 1567808943}
   armLength: 2
@@ -2209,6 +2155,7 @@ GameObject:
   - component: {fileID: 1567808939}
   - component: {fileID: 1567808944}
   - component: {fileID: 1567808945}
+  - component: {fileID: 1567808946}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2364,6 +2311,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6, y: 1.6}
   m_EdgeRadius: 0
+--- !u!114 &1567808946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567808938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a315c1ae13815d41a9867e47d5ce794, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1617290232
 GameObject:
   m_ObjectHideFlags: 0

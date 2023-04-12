@@ -23,9 +23,9 @@ public class FireBall : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         Destroy(gameObject, 2);
-        rb.AddForce(Vector2.up * speed * Time.deltaTime, ForceMode2D.Impulse);
+        rb.AddForce(transform.up * speed);
     }
 }
