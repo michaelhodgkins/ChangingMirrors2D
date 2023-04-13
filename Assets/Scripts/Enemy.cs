@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using TMPro;
 
 public class Enemy : MonoBehaviour
 {
@@ -10,10 +9,10 @@ public class Enemy : MonoBehaviour
     public float speed;
     int collisionDmg = 50;
     PlayerController player;
-
     void Start()
     {
         player = FindObjectOfType<PlayerController>();
+       
     }
 
      void Update()
@@ -39,7 +38,6 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             player.score++;
-            
             Die();
         }
     }

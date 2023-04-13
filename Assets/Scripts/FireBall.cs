@@ -1,13 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+
 
 public class FireBall : MonoBehaviour
 {
     public float speed = 2f;
     public int damage;
     [SerializeField] Rigidbody2D rb;
-   
+
     void Start()
     {
         
@@ -19,7 +20,7 @@ public class FireBall : MonoBehaviour
         if (enemy != null)
         {
             enemy.TakeDamage(damage);
-        }
+}
         Destroy(gameObject);
     }
 
@@ -28,4 +29,5 @@ public class FireBall : MonoBehaviour
         Destroy(gameObject, 2);
         rb.AddForce(transform.up * speed);
     }
+
 }

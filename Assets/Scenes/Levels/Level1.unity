@@ -395,7 +395,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 332977785}
-  - component: {fileID: 332977784}
+  - component: {fileID: 332977786}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -403,32 +403,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &332977784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 332977783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f076832741c809d4684652f1d6ae946e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy:
-  - {fileID: 3085825152548276753, guid: cf0c35fdd38bdb24b83548f603b69d02, type: 3}
-  - {fileID: 6740697539989804000, guid: cd75829828d38d647afe566aeda173ed, type: 3}
-  item:
-  - {fileID: 2597214444439420879, guid: 0bd8efab7625ef04a8653d551a6f9859, type: 3}
-  - {fileID: 1305336603605258826, guid: 059900c39419f3742b431aadf4f223b3, type: 3}
-  spawnPoints:
-  - {fileID: 1617290233}
-  - {fileID: 1477210354}
-  spawnMax: 4
-  spawnCount: 0
-  AudioSource: {fileID: 214244051}
-  waveText: {fileID: 1016322551}
-  waveCount: 0
 --- !u!4 &332977785
 Transform:
   m_ObjectHideFlags: 0
@@ -447,6 +421,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &332977786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332977783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f076832741c809d4684652f1d6ae946e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy:
+  - {fileID: 3085825152548276753, guid: cf0c35fdd38bdb24b83548f603b69d02, type: 3}
+  - {fileID: 6740697539989804000, guid: cd75829828d38d647afe566aeda173ed, type: 3}
+  enemyAdvanced:
+  - {fileID: 9223290008091527407, guid: de3f1041b6e4f5441926b2ebc59d9773, type: 3}
+  item:
+  - {fileID: 2597214444439420879, guid: 0bd8efab7625ef04a8653d551a6f9859, type: 3}
+  - {fileID: 1305336603605258826, guid: 059900c39419f3742b431aadf4f223b3, type: 3}
+  spawnPoints:
+  - {fileID: 1617290233}
+  - {fileID: 1477210354}
+  AudioSource: {fileID: 214244051}
+  waveText: {fileID: 1016322551}
+  waveCount: 0
+  spawnMax: 4
+  spawnCount: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1706,6 +1708,7 @@ MonoBehaviour:
   shoulder: {fileID: 1567808943}
   armLength: 2
   shotAudio: {fileID: 1227342779}
+  damageText: {fileID: 0}
 --- !u!1 &1363288885
 GameObject:
   m_ObjectHideFlags: 0

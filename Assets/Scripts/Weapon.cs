@@ -11,7 +11,6 @@ public class Weapon : MonoBehaviour
     public Transform shoulder;
     public float armLength = 2f;
     public AudioSource shotAudio;
-   
     void Update()
     {
         Vector3 shoulderToMousesDir = cam.ScreenToWorldPoint(Input.mousePosition) - shoulder.position;
