@@ -6,21 +6,26 @@ using UnityEngine;
 public class FireBall : MonoBehaviour
 {
     public float speed = 2f;
-    public int damage;
     [SerializeField] Rigidbody2D rb;
+    Weapon weapon;
+    Enemy enemy;
 
     void Start()
     {
-        
+    
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Enemy enemy = collision.GetComponent<Enemy>();
-        if (enemy != null)
+        if(collision.CompareTag("enemy"))
         {
-            enemy.TakeDamage(damage);
-}
+            enemy = collision.GetComponent<Enemy>();
+            weapon = FindObjectOfType<Weapon>();
+            enemy.TakeDamage(weapon.damage);
+            Debug.Log(weapon.damage);
+            
+        }
         Destroy(gameObject);
     }
 

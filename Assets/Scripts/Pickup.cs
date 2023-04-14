@@ -23,5 +23,14 @@ public class Pickup : MonoBehaviour
             Destroy(collision.gameObject);
 
         }
+        else if(collision.CompareTag("dmg"))
+        {
+            Weapon weapon = GetComponentInChildren<Weapon>();
+            if (weapon != null)
+            {
+                weapon.damage += 50;
+            }
+            Destroy(collision.gameObject);
+        }
     }
 }

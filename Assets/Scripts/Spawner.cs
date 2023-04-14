@@ -6,7 +6,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public GameObject[] enemy;
-    public GameObject[] enemyAdvanced;
+    public GameObject[] advancedEnemy;
     public GameObject[] item;
     public Transform[] spawnPoints;
     public AudioSource AudioSource;
@@ -26,16 +26,38 @@ public class Spawner : MonoBehaviour
     {
         StartCoroutine(BasicStage());
         yield return new WaitForSecondsRealtime(2);
-        if (spawnMax <= 6)
+        if (waveCount < 5)
         {
            StartCoroutine(TimeBetweenWaves());
         }
-         else if (spawnMax >= 6)
+        else if (waveCount == 5)
+        {
+            StartCoroutine(RewardStage());
+            StartCoroutine(TimeBetweenWaves());
+        }
+        else if (waveCount >= 6)
         { 
-            StartCoroutine(AdvancedStage());
+            StartCoroutine(AdvancedWaveSystem());
         }
 
+    }
 
+    IEnumerator AdvancedWaveSystem()
+    {
+        StartCoroutine(AdvancedStage());
+        yield return new WaitForSecondsRealtime(1);
+        if (waveCount < 10)
+        {
+            StartCoroutine(ShorterTimeBetweenWaves());
+        }
+        else if (waveCount == 10)
+        {
+            StartCoroutine(RewardStage());
+        }
+        else if (waveCount > 10)
+        {
+            Debug.Log("You win");
+        }
 
     }
 
@@ -54,26 +76,41 @@ public class Spawner : MonoBehaviour
     IEnumerator RewardStage()
     {
         Instantiate(item[Random.Range(0, item.Length)], Vector3.right, Quaternion.identity);
-        yield return new WaitForSecondsRealtime(5);
+        waveCount++;
+        yield return null;
 
     }
 
     IEnumerator AdvancedStage()
     {
-        Instantiate(enemyAdvanced[0], spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.identity);
-        yield return new WaitForSecondsRealtime(1);
-        waveCount++;
+        while (spawnCount <= spawnMax)
+        {
+            Instantiate(advancedEnemy[Random.Range(0, advancedEnemy.Length)], spawnPoints[Random.Range(0, spawnPoints.Length)].position, Quaternion.identity);
+            spawnCount++;
+            yield return new WaitForSecondsRealtime(1);
+            
+        }
+          
     }
 
     IEnumerator TimeBetweenWaves()
 {
-    yield return new WaitForSecondsRealtime(30);
+    yield return new WaitForSecondsRealtime(15);
     AudioSource.Play();
     spawnCount = 0;
     spawnMax++;
     waveCount++;
     StartCoroutine(WaveSystem());
 }
+
+    IEnumerator ShorterTimeBetweenWaves()
+    {
+        yield return new WaitForSecondsRealtime(10);
+        AudioSource.Play();
+        spawnCount = 0;
+        waveCount++;
+        StartCoroutine(AdvancedWaveSystem());
+    }
     private void Update()
     {
         waveText.text = "wave: " + waveCount;

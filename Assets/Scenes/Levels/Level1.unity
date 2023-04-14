@@ -411,7 +411,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 332977783}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.367786, y: 5.43, z: 0.18866514}
+  m_LocalPosition: {x: -5.367786, y: 6.84, z: 0.18866514}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -436,11 +436,13 @@ MonoBehaviour:
   enemy:
   - {fileID: 3085825152548276753, guid: cf0c35fdd38bdb24b83548f603b69d02, type: 3}
   - {fileID: 6740697539989804000, guid: cd75829828d38d647afe566aeda173ed, type: 3}
-  enemyAdvanced:
+  advancedEnemy:
+  - {fileID: 3248460417354218114, guid: 66a27edecc2498643895384b17375670, type: 3}
   - {fileID: 9223290008091527407, guid: de3f1041b6e4f5441926b2ebc59d9773, type: 3}
   item:
   - {fileID: 2597214444439420879, guid: 0bd8efab7625ef04a8653d551a6f9859, type: 3}
   - {fileID: 1305336603605258826, guid: 059900c39419f3742b431aadf4f223b3, type: 3}
+  - {fileID: 8961228214177260049, guid: 7f86537f9688bae42abc56a50c0eed62, type: 3}
   spawnPoints:
   - {fileID: 1617290233}
   - {fileID: 1477210354}
@@ -536,7 +538,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 8
+  orthographic size: 10
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -1708,7 +1710,7 @@ MonoBehaviour:
   shoulder: {fileID: 1567808943}
   armLength: 2
   shotAudio: {fileID: 1227342779}
-  damageText: {fileID: 0}
+  damage: 50
 --- !u!1 &1363288885
 GameObject:
   m_ObjectHideFlags: 0
@@ -1921,8 +1923,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1466556649}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.874028, y: 1.1625931, z: -0.10819684}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 16.133, y: 1.715, z: -0.10819684}
+  m_LocalScale: {x: 1.25, y: 1.306875, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1320120258}
