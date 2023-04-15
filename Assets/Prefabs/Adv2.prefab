@@ -128,3 +128,4 @@ MonoBehaviour:
   damage: 20
   hasHit: 0
   speed: 2
+  experiencePoints: 10

@@ -9,7 +9,9 @@ public class Pickup : MonoBehaviour
             PlayerHealth health = GetComponent<PlayerHealth>();
             if (health != null)
             {
+                health.maxHealth += 20;
                 health.health += 20;
+                health.UpdateHealthBar();
             }
             Destroy(collision.gameObject);
         }
@@ -28,7 +30,7 @@ public class Pickup : MonoBehaviour
             Weapon weapon = GetComponentInChildren<Weapon>();
             if (weapon != null)
             {
-                weapon.damage += 50;
+                weapon.damage += 50f;
             }
             Destroy(collision.gameObject);
         }

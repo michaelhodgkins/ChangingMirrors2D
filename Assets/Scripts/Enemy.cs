@@ -1,23 +1,25 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    public int health = 100;
-    public int damage = 10;
+    public float health = 100;
+    public float damage = 10;
     public bool hasHit = false;
     public float speed;
     int collisionDmg = 50;
     PlayerController player;
+    public float experiencePoints = 10;
     void Start()
     {
         player = FindObjectOfType<PlayerController>();
-       
     }
 
      void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        
     }
 
     
@@ -31,13 +33,13 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         health -= damage;
         StartCoroutine(DamageTimer());
         if (health <= 0)
         {
-            player.score++;
+            player.xp += experiencePoints;
             Die();
         }
     }
@@ -52,7 +54,7 @@ public class Enemy : MonoBehaviour
 
     }
 
-    void Die()
+        void Die()
     {
        
             Destroy(gameObject);

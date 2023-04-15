@@ -11,7 +11,7 @@ public class Weapon : MonoBehaviour
     public Transform shoulder;
     public float armLength = 2f;
     public AudioSource shotAudio;
-    public int damage = 50;
+    public float damage = 50;
     void Update()
     {
         Vector3 shoulderToMousesDir = cam.ScreenToWorldPoint(Input.mousePosition) - shoulder.position;
@@ -33,7 +33,7 @@ public class Weapon : MonoBehaviour
             Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
             shotAudio.Play();
             yield return new WaitForSecondsRealtime(fireRate);
-            Debug.Log("wait 1 second");
+            Debug.Log("wait: " + fireRate);
 
             hasShot = false;
         }
