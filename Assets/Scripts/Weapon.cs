@@ -4,7 +4,8 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     public Transform firePoint;
-    [SerializeField] GameObject bulletPrefab;
+    [SerializeField] GameObject firePrefab;
+    [SerializeField] GameObject waterPrefab;
     public float fireRate = 1;
     private bool hasShot = false;
     public Camera cam;
@@ -19,23 +20,31 @@ public class Weapon : MonoBehaviour
        transform.position = shoulder.position + (armLength * shoulderToMousesDir.normalized);
         firePoint.up = shoulderToMousesDir;
         
-        if (Input.GetMouseButtonDown(0) && hasShot == false)
+        if (Input.GetMouseButtonDown(0) && hasShot == false || Input.GetMouseButton(1) && hasShot == false)
         {
             Shoot();
-            
         }
     }
 
     IEnumerator ShootingMechanic()
     {
-        if (hasShot)
+        if (hasShot && Input.GetMouseButton(0))
         {
-            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            Instantiate(firePrefab, firePoint.position, firePoint.rotation);
             shotAudio.Play();
             yield return new WaitForSecondsRealtime(fireRate);
             Debug.Log("wait: " + fireRate);
 
             hasShot = false;
+        }
+        else if(hasShot && Input.GetMouseButton(1))
+        {
+            Instantiate(waterPrefab, firePoint.position, firePoint.rotation);
+            shotAudio.Play();
+            yield return new WaitForSecondsRealtime(8);
+            Debug.Log("water");
+            hasShot = false;
+
         }
 
     }

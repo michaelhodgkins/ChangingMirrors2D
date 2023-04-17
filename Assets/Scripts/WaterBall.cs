@@ -1,22 +1,20 @@
+using System.Collections;
+using UnityEditor.Rendering;
 using UnityEngine;
 
-
-public class FireBall : MonoBehaviour
+public class WaterBall : MonoBehaviour
 {
     public float speed = 2f;
     [SerializeField] Rigidbody2D rb;
-    Weapon weapon;
     Enemy enemy;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("enemy"))
+        if (collision.CompareTag("enemy"))
         {
             enemy = collision.GetComponent<Enemy>();
-            weapon = FindObjectOfType<Weapon>();
-            enemy.TakeDamage(weapon.damage);
-            Debug.Log(weapon.damage);
-            
+            enemy.speed = 0;
+            Debug.Log("hit");
         }
         Destroy(gameObject);
     }
@@ -27,4 +25,6 @@ public class FireBall : MonoBehaviour
         rb.AddForce(transform.up * speed);
     }
 
+
 }
+

@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,7 @@ public class Enemy : MonoBehaviour
     public float experiencePoints = 10;
     public GameObject healthBar;
     public Image healthBarImage;
+    public Rigidbody2D enemyRb;
 
     void Start()
     {
@@ -64,7 +66,6 @@ public class Enemy : MonoBehaviour
         }
 
     }
-
         void Die()
     {
        

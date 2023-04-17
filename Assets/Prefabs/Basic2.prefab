@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8910171250857620219}
   - component: {fileID: 7235530835139896715}
+  - component: {fileID: 2224306920176995116}
   - component: {fileID: 3534838405337747392}
   - component: {fileID: 2935745486013038102}
   m_Layer: 0
@@ -87,6 +88,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &2224306920176995116
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6740697539989804000}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!61 &3534838405337747392
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -130,9 +152,11 @@ MonoBehaviour:
   damage: 20
   hasHit: 0
   speed: 4
+  currentSpeed: 0
   experiencePoints: 2
   healthBar: {fileID: 1570475904927840077}
   healthBarImage: {fileID: 2668452409737605317}
+  enemyRb: {fileID: 2224306920176995116}
 --- !u!1001 &6642165318243806936
 PrefabInstance:
   m_ObjectHideFlags: 0
