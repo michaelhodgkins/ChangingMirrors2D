@@ -5,6 +5,7 @@ public class Weapon : MonoBehaviour
 {
     public Transform firePoint;
     [SerializeField] GameObject firePrefab;
+    [SerializeField] GameObject fireWallPrefab;
     [SerializeField] GameObject waterPrefab;
     public float fireRate = 1;
     private bool hasShot = false;
@@ -46,6 +47,19 @@ public class Weapon : MonoBehaviour
             hasShot = false;
 
         }
+        /*
+         
+        else if (hasShot && "Input to be decided"))
+        {
+            Instantiate(fireWallPrefab, firePoint.position, firePoint.rotation);
+            shotAudio.Play();
+            yield return new WaitForSecondsRealtime(fireRate);
+            Debug.Log("wait: " + fireRate);
+
+            hasShot = false;
+        }
+        Another projectile
+        */
 
     }
 
